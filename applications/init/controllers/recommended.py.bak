@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# try something like
+def index():
+    response.title = 'Recommended'
+    return dict(message="Perhaps you might like...")

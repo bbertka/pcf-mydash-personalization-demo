@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# try something like
+def index():
+
+    response.title = 'Profile'
+    return dict(message="This is all about you!")

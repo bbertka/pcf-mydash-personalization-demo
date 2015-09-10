@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# try something like
+def index():
+    redirect("https://mydash.cfapps.pez.pivotal.io/")
+
+    return dict(message="hello from settings.py")

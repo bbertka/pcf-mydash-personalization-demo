@@ -1,0 +1,133 @@
+{{extend 'layout.html'}}
+ <link rel="stylesheet" type="text/css" href="{{=URL('static','keen/assets/css/keen-dashboards.css')}}" />
+
+{{if not timeline:}}
+<h3><i class='fa fa-twitter'></i> Timeline Search</h3>
+{{=form}}
+{{pass}}
+
+{{if timeline:}}
+<div class="row" style="padding-top: 25px;">
+
+<div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <i class="fa fa-lg fa-twitter"> @{{=session.SEARCHNAME}}'s Twitter Timeline</i>
+          </div>
+          <div class="chart-stage">
+            {{=TABLE(_class="table table-hover", *[TR(*rows) for rows in timeline])}}
+          </div>
+          <div class="chart-notes">
+            Last 20 tweets shown
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <i class="fa fa-lg fa-slack"> @{{=session.SEARCHNAME}}'s Top 20 Hashtags</i>
+          </div>
+          <div class="chart-stage ">
+                  <p id="bubbles" style="text-align: center; font-size: 20px;"></p>
+          </div>
+          <div class="chart-notes">
+            Top 20 most common hashtags from last 500 tweets
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+         <div class="chart-title">
+           <i class="fa fa-lg fa-users"> @{{=session.SEARCHNAME}}'s Timeline Sentiment</i>
+          </div>
+          <div class="chart-stage ">
+           <p id="pie" style="text-align: center; font-size: 20px;"></p>
+          </div>
+          <div class="chart-notes">
+            Sentiment computed from last 500 tweets
+          </div>
+        </div>
+      </div>
+        
+        
+        
+        
+    </div>
+
+
+
+   </div>
+
+  </div>
+
+
+<script src="{{=URL('static','d3/js/d3.v3.min.js')}}"></script>
+<script src="{{=URL('static','d3/js/fvc.js')}}"></script>
+<script src="{{=URL('static','d3/js/aggcount.js')}}"></script>
+
+
+<script>
+    var max = $(window).height() - 115;
+    var max50p = (max - 135)/2;
+
+	var bubblechart = fvcBubbleChart().diameter(max/1.1);
+    var piechart = fvcPieChart().width(max50p).height(max50p).r(max50p/2.65);
+
+	function redraw() {
+                
+                d3.json("/init/search/sentiment")
+                .get(function(error, json) {
+                        if (error) {
+                                return console.warn(error);
+                        }
+                        var data = d3.entries(json.counts);
+                        data.sort(function(a,b) {
+                                return b.value - a.value;
+                        });
+                        d3.select("#pie")
+                                .datum(data)
+                                .call(piechart);
+                });
+        
+		d3.json("/init/search/metrics")
+		.get(function(error, json) {
+			if( error ){ 
+				return console.warn(error); 
+			}
+			var data = d3.entries(json.counts);
+			data.sort(function(a,b) { 
+				return b.value - a.value; 
+			});
+        		data.splice(500);
+        		d3.select("#bubbles")
+				.datum(data)
+				.call(bubblechart);
+		});
+	}
+
+	redraw.call();
+	setInterval(redraw, 60000);
+</script>
+{{pass}}
+
+  <script type="text/javascript" src="{{=URL('static','keen/assets/lib/holderjs/holder.js')}}"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+  <script type="text/javascript" src="{{=URL('static','keen/assets/lib/keen-js/dist/keen.min.js')}}"></script>
+  <script type="text/javascript" src="{{=URL('static','keen/assets/js/meta.js')}}"></script>
+
+
+<script type="text/javascript" language="javascript">
+    var max = $(window).height() - 135;
+    $('.mybox').css('height', max +'px');
+    max = max - 53;
+    $('.mybox_50p').css('height', max/2.5 +'px');
+  </script>

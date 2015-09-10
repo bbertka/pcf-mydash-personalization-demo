@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<h1>What's this all about?</h1>
+
+<p>
+Personalizing user experience can be difficult and requires applications and infrastructure beyond the traditional monolithic architectures.  This project aims to harness the power of microservices with Pivotal Cloud Foundry and Lattice, ultimately creating a template for scale out distributed clustering for personalized workloads.
+</p>
+<p>
+ This app authenticates users with their Twitter credentials who are then able to view their Twitter stream, search for friends, and spawn a personalized real-time streaming twitter service presenting an analysis of their Top 20 hashtags in real time (A.K.A. Twitter-Bot-as-a-Service).  Under development is a recommendation engine backed by a Greenplum database of over 10 million tweets used to create an analysis template to analyze the logged in user and present them with new topics to follow.
+</p>
+<p>
+This demo has two parts: First, its a web app with a front end web interface running in Pivotal Cloud Foundry, and a backend distributed Lattice cluster serving personalized Docker container instances of a particular workload.  The web interface communicates with the backend via the Diego Receptor API.   Secondly, it contains a recommendation engine which uses topics, discovered from modeling user timelines, to drive discovery of new ideas (in development).
+</p>
+<p>
+    A tutorial for self deployment using PCF, Lattice, Docker, and Diego Receptor API with Github repo will be created once all the parts are finalized. At most, anyone running this demo themselves will need access to a PCF environment for the App, AWS credentials for Lattice deployment, and Twitter application credentials.
+</p>

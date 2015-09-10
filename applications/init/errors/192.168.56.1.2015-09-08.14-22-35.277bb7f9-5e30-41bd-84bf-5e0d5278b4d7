@@ -1,0 +1,670 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.ValueError'> No JSON object could be decoded"
+p3
+sS'layer'
+p4
+S'/home/www-data/web2py/applications/init/controllers/twitterbot.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# try something like\nimport os, json, sys\nimport requests\n\ntry:\n    APP_KEY = os.getenv(\'APP_KEY\')\n    APP_SECRET = os.getenv(\'APP_SECRET\')\n    ACCESS_TOKEN = os.getenv(\'ACCESS_TOKEN\')\n    ACCESS_TOKEN_SECRET = os.getenv(\'ACCESS_TOKEN_SECRET\')\n    APP_URI =json.loads(os.getenv("VCAP_APPLICATION"))[\'uris\'][0]\nexcept:\n    APP_KEY =\'N9Eu9N9iUX4MSHu8ryq8krrnH\'\n    APP_SECRET = \'h5FceeDBpCvDF99FiCyMiaGRefEeZc24pNlyEYG3EAtLNMXEzk\'\n    ACCESS_TOKEN = \'2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp\'\n    ACCESS_TOKEN_SECRET = \'wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf\'\n    APP_URI = \'devbox\'\n\ndef index():\n    if not session.SCREENNAME:\n        redirect(\'/\')\n    r = createBot()\n    return dict(message = r)\n\ndef createBot():\n    if not session.SCREENNAME:\n        redirect(\'/\')\n    query = { "process_guid": "ltc-api-test",\n             "domain": "lattice",\n             "instances": 1,\n             "rootfs":"docker:///bbertka/ltc-twitter-sentiment-demo-img#latest",\n             "env": [\n                {"name":"APP_KEY","value":"%s"%APP_KEY},\n                {"name":"APP_SECRET","value":"%s" %APP_SECRET},\n                {"name":"OAUTH_TOKEN","value":"%s" % session.USER_OAUTH_TOKEN},\n                {"name":"OAUTH_TOKEN_SECRET","value":"%s" % session.USER_OAUTH_TOKEN_SECRET},\n                {"name":"MAX_CHART_SIZE","value":"500"},\n                {"name":"INCLUDE_TWITTER_HASH","value":"bigdata, docker"}],\n             "action":  {\n                "run":{\n                        "user": "root",\n                        "path":"/bin/sh",\n                        "args":["-c","python -u bot.py"],\n                        "dir":"/ltc-twitter-sentiment-demo"\n                    }\n                 },\n             "ports": [8080]\n            }\n    headers = {\'Authorization\':\'Basic YmJlcnRrYTprYXJtYTE5NzY=\'}\n    #r = requests.get("http://receptor.52.5.148.62.xip.io/v1/desired_lrps/", headers = headers)\n    r = requests.post("http://receptor.52.5.148.62.xip.io/v1/desired_lrps", data=json.dumps(query), headers=headers)\n    return json.dumps(r.json(), indent=4)\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.ValueError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.ValueError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.ValueError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.ValueError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.ValueError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.ValueError object>'
+p23
+sS'args'
+p24
+S"('No JSON object could be decoded',)"
+p25
+sS'__reduce__'
+p26
+S'<built-in method __reduce__ of exceptions.ValueError object>'
+p27
+sS'__str__'
+p28
+S"<method-wrapper '__str__' of exceptions.ValueError object>"
+p29
+sS'__format__'
+p30
+S'<built-in method __format__ of exceptions.ValueError object>'
+p31
+sS'__getattribute__'
+p32
+S"<method-wrapper '__getattribute__' of exceptions.ValueError object>"
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.ValueError'>"
+p35
+sS'__unicode__'
+p36
+S'<built-in method __unicode__ of exceptions.ValueError object>'
+p37
+sS'__delattr__'
+p38
+S"<method-wrapper '__delattr__' of exceptions.ValueError object>"
+p39
+sS'__subclasshook__'
+p40
+S'<built-in method __subclasshook__ of type object>'
+p41
+sS'__repr__'
+p42
+S"<method-wrapper '__repr__' of exceptions.ValueError object>"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.ValueError object>'
+p47
+sS'__doc__'
+p48
+S"'Inappropriate argument value (of correct type).'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.ValueError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S'No JSON object could be decoded'
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xcc}\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>init</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>twitterbot</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-d12a00ed-961a-4f3a-a3f4-955dd0f254c5<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hrcexplorer</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-9b2fefff-e522-4932-b1af-6e0f5be6f0a1<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_init</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_jetexplorer</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-a7a6f093-5af1-4864-a620-0f1451f0c7b6<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_lockheed</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-1b96a350-49cc-46e2-8fe2-1ea03dc887f0<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_test</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-4574d531-8bf7-4b67-88b3-7ef6352d22b5<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-1df545f1-d577-4d48-ae1d-3cc8ff8b001d<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTEXT_DOCUMENT_ROOT</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTEXT_PREFIX</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">DOCUMENT_ROOT</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">GATEWAY_INTERFACE</td><td style="vertical-align:top;">:</td><td><div>CGI/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8,pl;q=0.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_lockheed=192.168.56.1-1b96a350-49cc-46e2-8fe2-1ea03dc887f0; session_id_hrcexplorer=192.168.56.1-9b2fefff-e522-4932-b1af-6e0f5be6f0a1; session_id_jetexplorer=192.168.56.1-a7a6f093-5af1-4864-a620-0f1451f0c7b6; session_id_welcome=192.168.56.1-1df545f1-d577-4d48-ae1d-3cc8ff8b001d; session_id_test=192.168.56.1-4574d531-8bf7-4b67-88b3-7ef6352d22b5; session_id_init=192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b; session_id_admin=192.168.56.1-d12a00ed-961a-4f3a-a3f4-955dd0f254c5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_TRANSLATED</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>63595</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_SCHEME</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_URI</td><td style="vertical-align:top;">:</td><td><div>/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_FILENAME</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_ADDR</td><td style="vertical-align:top;">:</td><td><div>192.168.56.101</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_ADMIN</td><td style="vertical-align:top;">:</td><td><div>[no address given]</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SIGNATURE</td><td style="vertical-align:top;">:</td><td><div>&lt;address&gt;Apache/2.4.7 (Ubuntu) Server at devbox Port 443&lt;/address&gt;\n</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Apache/2.4.7 (Ubuntu)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SSL_TLS_SNI</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/www-data/web2py/applications/admin/&#x27;, &#x27;/home/www-data/web2py/applications/init/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">context_document_root</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">context_prefix</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">document_root</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gateway_interface</td><td style="vertical-align:top;">:</td><td><div>CGI/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8,pl;q=0.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_lockheed=192.168.56.1-1b96a350-49cc-46e2-8fe2-1ea03dc887f0; session_id_hrcexplorer=192.168.56.1-9b2fefff-e522-4932-b1af-6e0f5be6f0a1; session_id_jetexplorer=192.168.56.1-a7a6f093-5af1-4864-a620-0f1451f0c7b6; session_id_welcome=192.168.56.1-1df545f1-d577-4d48-ae1d-3cc8ff8b001d; session_id_test=192.168.56.1-4574d531-8bf7-4b67-88b3-7ef6352d22b5; session_id_init=192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b; session_id_admin=192.168.56.1-d12a00ed-961a-4f3a-a3f4-955dd0f254c5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>devbox</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.application_group</td><td style="vertical-align:top;">:</td><td><div>127.0.1.1|</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.callable_object</td><td style="vertical-align:top;">:</td><td><div>application</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.enable_sendfile</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.handler_script</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.input_chunked</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.listener_host</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.listener_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.process_group</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.queue_start</td><td style="vertical-align:top;">:</td><td><div>1441747355573521</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.request_handler</td><td style="vertical-align:top;">:</td><td><div>wsgi-script</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.script_reloading</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>3</div></td></tr><tr><td><div>4</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_application_group</td><td style="vertical-align:top;">:</td><td><div>127.0.1.1|</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_callable_object</td><td style="vertical-align:top;">:</td><td><div>application</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_enable_sendfile</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_handler_script</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_input_chunked</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_listener_host</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_listener_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_process_group</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_queue_start</td><td style="vertical-align:top;">:</td><td><div>1441747355573521</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_request_handler</td><td style="vertical-align:top;">:</td><td><div>wsgi-script</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_script_reloading</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>3</div></td></tr><tr><td><div>4</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_translated</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>63595</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_filename</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_addr</td><td style="vertical-align:top;">:</td><td><div>192.168.56.101</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_admin</td><td style="vertical-align:top;">:</td><td><div>[no address given]</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_signature</td><td style="vertical-align:top;">:</td><td><div>&lt;address&gt;Apache/2.4.7 (Ubuntu) Server at devbox Port 443&lt;/address&gt;\n</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Apache/2.4.7 (Ubuntu)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">ssl_tls_sni</td><td style="vertical-align:top;">:</td><td><div>devbox</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.12.3-stable+timestamp.2015.08.19.00.18.03</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Log object at 0x7f70f9e8fb70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;built-in method file_wrapper of mod_wsgi.Adapter object at 0x7f70fab43c60&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Input object at 0x7f70f9d61c70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Log object at 0x7f70f9e8fb70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;built-in method file_wrapper of mod_wsgi.Adapter object at 0x7f70fab43c60&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Input object at 0x7f70f9d61c70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/applications/init/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/www-data/web2py/applications/admin/&#x27;, &#x27;/home/www-data/web2py/applications/init/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>devbox</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.12.3-stable+timestamp.2015.08.19.00.18.03</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_sheduler</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 9, 8, 14, 22, 35, 573859)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/init/twitterbot/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 9, 8, 21, 22, 35, 573871)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f70fa988e90&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/home/www-data/web2py/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ACCESS_TOKEN': '2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp', 'ACCESS_TOKEN_SECRET': 'wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf', 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'APP_KEY': 'N9Eu9N9iUX4MSHu8ryq8krrnH', 'APP_SECRET': 'h5FceeDBpCvDF99FiCyMiaGRefEeZc24pNlyEYG3EAtLNMXEzk', 'APP_URI': 'devbox', 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x7f70fab3e030, file "/...ications/init/controllers/twitterbot.py", line 3>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S"(code='# -*- coding: utf-8 -*-\\n# try something like\\nimp...ndent=4)\\n\\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'ACCESS_TOKEN': '2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp', 'ACCESS_TOKEN_SECRET': 'wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf', 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'APP_KEY': 'N9Eu9N9iUX4MSHu8ryq8krrnH', 'APP_SECRET': 'h5FceeDBpCvDF99FiCyMiaGRefEeZc24pNlyEYG3EAtLNMXEzk', 'APP_URI': 'devbox', 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, ...}, layer='/home/www-data/web2py/applications/init/controllers/twitterbot.py')"
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/home/www-data/web2py/applications/init/controllers/twitterbot.py'
+p88
+sg64
+(dp89
+sg70
+I54
+sg71
+(dp90
+I43
+S'                        "args":["-c","python -u bot.py"],'
+p91
+sI44
+S'                        "dir":"/ltc-twitter-sentiment-demo"'
+p92
+sI45
+S'                    }'
+p93
+sI46
+S'                 },'
+p94
+sI47
+S'             "ports": [8080]'
+p95
+sI48
+S'            }'
+p96
+sI49
+S"    headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}"
+p97
+sI50
+S'    #r = requests.get("http://receptor.52.5.148.62.xip.io/v1/desired_lrps/", headers = headers)'
+p98
+sI51
+S'    r = requests.post("http://receptor.52.5.148.62.xip.io/v1/desired_lrps", data=json.dumps(query), headers=headers)'
+p99
+sI52
+S'    return json.dumps(r.json(), indent=4)'
+p100
+ssg83
+S'()'
+p101
+sg85
+S'<module>'
+p102
+sa(dp103
+g62
+S'/home/www-data/web2py/gluon/globals.py'
+p104
+sg64
+(dp105
+S'self'
+p106
+S'undefined'
+p107
+sS'f'
+S'<function index>'
+p108
+ssg70
+I412
+sg71
+(dp109
+I416
+S"        self.generic_patterns = ['*']"
+p110
+sI407
+S"        self.flash = ''            # used by the default view layout"
+p111
+sI408
+S'        self.meta = Storage()      # used by web2py_ajax.html'
+p112
+sI409
+S'        self.menu = []             # used by the default view layout'
+p113
+sI410
+S'        self.files = []            # used by web2py_ajax.html'
+p114
+sI411
+S'        self._vars = None'
+p115
+sI412
+S'        self._caller = lambda f: f()'
+p116
+sI413
+S'        self._view_environment = None'
+p117
+sI414
+S'        self._custom_commit = None'
+p118
+sI415
+S'        self._custom_rollback = None'
+p119
+ssg83
+S'(f=<function index>)'
+p120
+sg85
+S'<lambda>'
+p121
+sa(dp122
+g62
+S'/home/www-data/web2py/applications/init/controllers/twitterbot.py'
+p123
+sg64
+(dp124
+S'global createBot'
+p125
+S'<function createBot>'
+p126
+sS'r'
+g107
+ssg70
+I22
+sg71
+(dp127
+I17
+S"    APP_URI = 'devbox'"
+p128
+sI18
+S''
+sI19
+S'def index():'
+p129
+sI20
+S'    if not session.SCREENNAME:'
+p130
+sI21
+S"        redirect('/')"
+p131
+sI22
+S'    r = createBot()'
+p132
+sI23
+S'    return dict(message = r)'
+p133
+sI24
+S''
+sI25
+S'def createBot():'
+p134
+sI26
+S'    if not session.SCREENNAME:'
+p135
+ssg83
+S'()'
+p136
+sg85
+S'index'
+p137
+sa(dp138
+g62
+S'/home/www-data/web2py/applications/init/controllers/twitterbot.py'
+p139
+sg64
+(dp140
+S'r.json'
+p141
+S'<bound method Response.json of <Response [201]>>'
+p142
+sS'indent'
+p143
+g107
+sS'global json'
+p144
+S"<module 'json' from '/usr/lib/python2.7/json/__init__.pyc'>"
+p145
+sS'json.dumps'
+p146
+S'<function dumps>'
+p147
+sS'r'
+S'<Response [201]>'
+p148
+ssg70
+I52
+sg71
+(dp149
+I43
+S'                        "args":["-c","python -u bot.py"],'
+p150
+sI44
+S'                        "dir":"/ltc-twitter-sentiment-demo"'
+p151
+sI45
+S'                    }'
+p152
+sI46
+S'                 },'
+p153
+sI47
+S'             "ports": [8080]'
+p154
+sI48
+S'            }'
+p155
+sI49
+S"    headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}"
+p156
+sI50
+S'    #r = requests.get("http://receptor.52.5.148.62.xip.io/v1/desired_lrps/", headers = headers)'
+p157
+sI51
+S'    r = requests.post("http://receptor.52.5.148.62.xip.io/v1/desired_lrps", data=json.dumps(query), headers=headers)'
+p158
+sI52
+S'    return json.dumps(r.json(), indent=4)'
+p159
+ssg83
+S'()'
+p160
+sg85
+S'createBot'
+p161
+sa(dp162
+g62
+S'/usr/lib/python2.7/dist-packages/requests/models.py'
+p163
+sg64
+(dp164
+S'self.text'
+p165
+S"u''"
+p166
+sS'json.loads'
+p167
+S'<function loads>'
+p168
+sS'global json'
+p169
+S"<module 'json' from '/usr/lib/python2.7/json/__init__.pyc'>"
+p170
+sS'self'
+p171
+S'<Response [201]>'
+p172
+sS'kwargs'
+p173
+g45
+ssg70
+I741
+sg71
+(dp174
+I736
+S'            # decoding fails, fall back to `self.text` (using chardet to make'
+p175
+sI737
+S'            # a best guess).'
+p176
+sI738
+S'            encoding = guess_json_utf(self.content)'
+p177
+sI739
+S'            if encoding is not None:'
+p178
+sI740
+S'                return json.loads(self.content.decode(encoding), **kwargs)'
+p179
+sI741
+S'        return json.loads(self.text, **kwargs)'
+p180
+sI742
+S''
+sI743
+S'    @property'
+p181
+sI744
+S'    def links(self):'
+p182
+sI745
+S'        """Returns the parsed header links of the response, if any."""'
+p183
+ssg83
+S'(self=<Response [201]>, **kwargs={})'
+p184
+sg85
+S'json'
+p185
+sa(dp186
+g62
+S'/usr/lib/python2.7/json/__init__.py'
+p187
+sg64
+(dp188
+S's'
+S"u''"
+p189
+sS'global _default_decoder'
+p190
+S'<json.decoder.JSONDecoder object>'
+p191
+sS'_default_decoder.decode'
+p192
+S'<bound method JSONDecoder.decode of <json.decoder.JSONDecoder object>>'
+p193
+ssg70
+I338
+sg71
+(dp194
+I333
+S''
+sI334
+S'    """'
+p195
+sI335
+S'    if (cls is None and encoding is None and object_hook is None and'
+p196
+sI336
+S'            parse_int is None and parse_float is None and'
+p197
+sI337
+S'            parse_constant is None and object_pairs_hook is None and not kw):'
+p198
+sI338
+S'        return _default_decoder.decode(s)'
+p199
+sI339
+S'    if cls is None:'
+p200
+sI340
+S'        cls = JSONDecoder'
+p201
+sI341
+S'    if object_hook is not None:'
+p202
+sI342
+S"        kw['object_hook'] = object_hook"
+p203
+ssg83
+S"(s=u'', encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw={})"
+p204
+sg85
+S'loads'
+p205
+sa(dp206
+g62
+S'/usr/lib/python2.7/json/decoder.py'
+p207
+sg64
+(dp208
+S').end'
+p209
+g107
+sS'end'
+p210
+g107
+sS'idx'
+p211
+g107
+sS'_w'
+p212
+S'<built-in method match of _sre.SRE_Pattern object>'
+p213
+sS'self'
+p214
+S'<json.decoder.JSONDecoder object>'
+p215
+sS's'
+S"u''"
+p216
+sS'self.raw_decode'
+p217
+S'<bound method JSONDecoder.raw_decode of <json.decoder.JSONDecoder object>>'
+p218
+sS'obj'
+p219
+g107
+ssg70
+I366
+sg71
+(dp220
+I361
+S'    def decode(self, s, _w=WHITESPACE.match):'
+p221
+sI362
+S'        """Return the Python representation of ``s`` (a ``str`` or ``unicode``'
+p222
+sI363
+S'        instance containing a JSON document)'
+p223
+sI364
+S''
+sI365
+S'        """'
+p224
+sI366
+S'        obj, end = self.raw_decode(s, idx=_w(s, 0).end())'
+p225
+sI367
+S'        end = _w(s, end).end()'
+p226
+sI368
+S'        if end != len(s):'
+p227
+sI369
+S'            raise ValueError(errmsg("Extra data", s, end, len(s)))'
+p228
+sI370
+S'        return obj'
+p229
+ssg83
+S"(self=<json.decoder.JSONDecoder object>, s=u'', _w=<built-in method match of _sre.SRE_Pattern object>)"
+p230
+sg85
+S'decode'
+p231
+sa(dp232
+g62
+S'/usr/lib/python2.7/json/decoder.py'
+p233
+sg64
+(dp234
+S'builtinValueError'
+p235
+S"<type 'exceptions.ValueError'>"
+p236
+ssg70
+I384
+sg71
+(dp237
+I384
+S'            raise ValueError("No JSON object could be decoded")'
+p238
+sI385
+S'        return obj, end'
+p239
+sI376
+S''
+sI377
+S'        This can be used to decode a JSON document from a string that may'
+p240
+sI378
+S'        have extraneous data at the end.'
+p241
+sI379
+S''
+sI380
+S'        """'
+p242
+sI381
+S'        try:'
+p243
+sI382
+S'            obj, end = self.scan_once(s, idx)'
+p244
+sI383
+S'        except StopIteration:'
+p245
+ssg83
+S"(self=<json.decoder.JSONDecoder object>, s=u'', idx=0)"
+p246
+sg85
+S'raw_decode'
+p247
+sasS'pyver'
+p248
+S'Python 2.7.6: /usr/bin/python (prefix: /usr)'
+p249
+sS'session'
+p250
+g57
+(S's}:\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">HOMEPAGE</td><td style="vertical-align:top;">:</td><td><div>https://twitter.com/Sufyaan_Kazi</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">IMAGE</td><td style="vertical-align:top;">:</td><td><div>https://pbs.twimg.com/profile_images/607272450879930368/Lw9SXrip_normal.jpg</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">JSON</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">oauth_token</td><td style="vertical-align:top;">:</td><td><div>2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">oauth_token_secret</td><td style="vertical-align:top;">:</td><td><div>wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">screen_name</td><td style="vertical-align:top;">:</td><td><div>P3Geek</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_id</td><td style="vertical-align:top;">:</td><td><div>2927712042</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">x_auth_expires</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">OAUTH_TOKEN</td><td style="vertical-align:top;">:</td><td><div>umSnbQAAAAAAhUchAAABT63-DRA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">OAUTH_TOKEN_SECRET</td><td style="vertical-align:top;">:</td><td><div>RSkVEIWDKmxxfZakV4iZol4aiDPEGxml</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PROCESS_GUID</td><td style="vertical-align:top;">:</td><td><div>ltc-p3geek</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PROFILE</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">contributors_enabled</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">created_at</td><td style="vertical-align:top;">:</td><td><div>Fri Dec 12 18:07:51 +0000 2014</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">default_profile</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">default_profile_image</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">entities</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">urls</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">favourites_count</td><td style="vertical-align:top;">:</td><td><div>188</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">follow_request_sent</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">followers_count</td><td style="vertical-align:top;">:</td><td><div>361</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">following</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">friends_count</td><td style="vertical-align:top;">:</td><td><div>1575</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">geo_enabled</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">has_extended_profile</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>2927712042</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id_str</td><td style="vertical-align:top;">:</td><td><div>2927712042</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_translation_enabled</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_translator</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">lang</td><td style="vertical-align:top;">:</td><td><div>en</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">listed_count</td><td style="vertical-align:top;">:</td><td><div>703</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">location</td><td style="vertical-align:top;">:</td><td><div>Seattle, WA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">name</td><td style="vertical-align:top;">:</td><td><div>P3Geek</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">needs_phone_verification</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">notifications</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_background_color</td><td style="vertical-align:top;">:</td><td><div>C0DEED</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_background_image_url</td><td style="vertical-align:top;">:</td><td><div>http://abs.twimg.com/images/themes/theme1/bg.png</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_background_image_url_https</td><td style="vertical-align:top;">:</td><td><div>https://abs.twimg.com/images/themes/theme1/bg.png</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_background_tile</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_banner_url</td><td style="vertical-align:top;">:</td><td><div>https://pbs.twimg.com/profile_banners/2927712042/1433697608</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_image_url</td><td style="vertical-align:top;">:</td><td><div>http://pbs.twimg.com/profile_images/607272450879930368/Lw9SXrip_normal.jpg</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_image_url_https</td><td style="vertical-align:top;">:</td><td><div>https://pbs.twimg.com/profile_images/607272450879930368/Lw9SXrip_normal.jpg</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_link_color</td><td style="vertical-align:top;">:</td><td><div>0084B4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_location</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">attributes</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">bounding_box</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">contained_within</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">country</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">country_code</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">full_name</td><td style="vertical-align:top;">:</td><td><div>Seattle, WA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>300bcc6e23a88361</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">name</td><td style="vertical-align:top;">:</td><td><div>Seattle, WA</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">place_type</td><td style="vertical-align:top;">:</td><td><div>unknown</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>https://api.twitter.com/1.1/geo/id/300bcc6e23a88361.json</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_sidebar_border_color</td><td style="vertical-align:top;">:</td><td><div>C0DEED</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_sidebar_fill_color</td><td style="vertical-align:top;">:</td><td><div>DDEEF6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_text_color</td><td style="vertical-align:top;">:</td><td><div>333333</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">profile_use_background_image</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">protected</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">screen_name</td><td style="vertical-align:top;">:</td><td><div>P3Geek</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">contributors</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">coordinates</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">created_at</td><td style="vertical-align:top;">:</td><td><div>Sun Sep 06 00:26:11 +0000 2015</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">entities</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">hashtags</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{u&#x27;indices&#x27;: [78, 86], u&#x27;text&#x27;: u&#x27;pivotal&#x27;}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">symbols</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">urls</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{u&#x27;url&#x27;: u&#x27;http://t.co/RavnZQ33Cm&#x27;, u&#x27;indices&#x27;: [55, 77], u&#x27;expanded_url&#x27;: u&#x27;http://ift.tt/1LbPz0T&#x27;, u&#x27;display_url&#x27;: u&#x27;ift.tt/1LbPz0T&#x27;}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_mentions</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">favorite_count</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">favorited</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">geo</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>640320051556556800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id_str</td><td style="vertical-align:top;">:</td><td><div>640320051556556800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">in_reply_to_screen_name</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">in_reply_to_status_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">in_reply_to_status_id_str</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">in_reply_to_user_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">in_reply_to_user_id_str</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">lang</td><td style="vertical-align:top;">:</td><td><div>en</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">place</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">possibly_sensitive</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">retweet_count</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">retweeted</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">source</td><td style="vertical-align:top;">:</td><td><div>&lt;a href=&quot;http://ifttt.com&quot; rel=&quot;nofollow&quot;&gt;IFTTT&lt;/a&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">text</td><td style="vertical-align:top;">:</td><td><div>sslip.io: A Valid SSL Certificate for Every IP Address http://t.co/RavnZQ33Cm #pivotal</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">truncated</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">statuses_count</td><td style="vertical-align:top;">:</td><td><div>11305</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">suspended</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">time_zone</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utc_offset</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">verified</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCREENNAME</td><td style="vertical-align:top;">:</td><td><div>P3Geek</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">USER_OAUTH_TOKEN</td><td style="vertical-align:top;">:</td><td><div>2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">USER_OAUTH_TOKEN_SECRET</td><td style="vertical-align:top;">:</td><td><div>wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf</div></td></tr></table></div>'
+tRp251
+sS'etype'
+p252
+S"<type 'exceptions.ValueError'>"
+p253
+sS'date'
+p254
+S'Tue Sep  8 14:22:35 2015'
+p255
+sS'response'
+p256
+g57
+(S's&#\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f70fa6d97a0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_init</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>bootstrap3_inline</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">logo</td><td style="vertical-align:top;">:</td><td><div><a class="navbar-brand" href="/" id="web2py-logo"><b>myDash</b></a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div><i class="glyphicon glyphicon-home"></i> Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/default/index</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div><i class="glyphicon glyphicon-thumbs-up"></i> Recommended</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/recommended/index</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div><i class="fa fa-twitter"></i> Twitter-Bot</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/twitterbot/index</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu1</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div><img class="size32" src="https://pbs.twimg.com/profile_images/607272450879930368/Lw9SXrip_normal.jpg" /> P3Geek</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>#</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>About</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/about/index</div></td></tr></table></div></td></tr><tr><td><div><li class="divider"></li></div></td></tr><tr><td><div><table><tr><td><div>Profile</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/profile/index</div></td></tr></table></div></td></tr><tr><td><div><li class="divider"></li></div></td></tr><tr><td><div><table><tr><td><div><i class="glyphicon glyphicon-log-out"></i> Logout</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/init/default/logout</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^twitterbot/\\w+\\.py$</div></td></tr><tr><td><div>^twitterbot/index/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_init</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/www-data/web2py/applications/init/sessions/1f2/119/192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b&#x27;, mode &#x27;rb+&#x27; at 0x7f70faa7e6f0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/applications/init/sessions/192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>8f918f2bcfbd6ab8e65b8fd82507052e</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>192.168.56.1-1d3be2d6-7308-4260-9980-588af772808b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_init</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>init</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Init</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>twitterbot/index.html</div></td></tr></table></div>'
+tRp257
+sS'locals'
+p258
+(dp259
+S's'
+S"u''"
+p260
+sS'self'
+p261
+S'<json.decoder.JSONDecoder object>'
+p262
+sS'idx'
+p263
+S'0'
+sssS'traceback'
+p264
+S'Traceback (most recent call last):\n  File "/home/www-data/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/www-data/web2py/applications/init/controllers/twitterbot.py", line 54, in <module>\n  File "/home/www-data/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/www-data/web2py/applications/init/controllers/twitterbot.py", line 22, in index\n    r = createBot()\n  File "/home/www-data/web2py/applications/init/controllers/twitterbot.py", line 52, in createBot\n    return json.dumps(r.json(), indent=4)\n  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 741, in json\n    return json.loads(self.text, **kwargs)\n  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads\n    return _default_decoder.decode(s)\n  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode\n    raise ValueError("No JSON object could be decoded")\nValueError: No JSON object could be decoded\n'
+p265
+s.

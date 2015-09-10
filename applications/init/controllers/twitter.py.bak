@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+from twython import Twython
+import os
+
+
+APP_KEY = 'N9Eu9N9iUX4MSHu8ryq8krrnH'
+APP_SECRET = 'h5FceeDBpCvDF99FiCyMiaGRefEeZc24pNlyEYG3EAtLNMXEzk'
+
+# try something like
+def index():
+    response.title = 'Twitter Login'
+    form, tauth = display_form()
+    return dict(form=form, message="Twitter API Login", tauth=tauth)
+
+def display_form():
+    form = SQLFORM(db.twitter)
+    tauth = None
+    if form.process().accepted:
+        session.SCREENNAME = form.vars.screenname
+        tauth = get_api_keys(form.vars.screenname, form.vars.password)
+    elif form.errors:
+        response.flash = 'Form has Errors'
+    else:
+        pass
+    return form, tauth
+
+def get_api_keys(screenname, password):
+    twitter = Twython(APP_KEY, APP_SECRET)
+    tauth = twitter.get_authentication_tokens(callback_url='https://devbox/init/twitter/login')
+    session.OAUTH_TOKEN = tauth['oauth_token']
+    session.OAUTH_TOKEN_SECRET = tauth['oauth_token_secret']
+    redirect(tauth['auth_url'])
+    return True
+
+def login():
+    response.title = 'Twitter Dashboard'
+    oauth_verifier = request.vars['oauth_verifier']
+    twitter = Twython(APP_KEY, APP_SECRET, session.OAUTH_TOKEN, session.OAUTH_TOKEN_SECRET)
+    tokens = twitter.get_authorized_tokens(oauth_verifier)
+    session.OAUTH_TOKEN = tokens['oauth_token']
+    session.OAUTH_TOKEN_SECRET = tokens['oauth_token_secret']
+    redirect('https://devbox/init/dashboard')
+    #return dict(message="Twitter Dashboard", tokens=tokens)

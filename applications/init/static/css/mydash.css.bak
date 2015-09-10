@@ -1,0 +1,174 @@
+body {
+    padding-top: 50px;
+    margin-bottom: 60px;
+}
+header {
+    -webkit-box-shadow: 0 0 8px 2px #000;
+    -moz-box-shadow: 0 0 8px 2px #000;
+    box-shadow: 0 0 8px 2px #000;
+    margin-bottom: 10px;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    background: #333;
+    color: #aaa;
+}
+
+.button.navbar-toggle.btn.btn-default {
+    
+}
+
+
+.twitter_login {
+ width: 356px;
+}
+
+
+.small-text {
+ color: #F1F731 ;
+font-size: 24px;
+}
+
+
+
+.footer-icon:hover { color: #0AFF70; }
+
+.footer-link:hover  {
+    color: #0AFF70;
+    text-decoration: none;
+}
+
+.footer-link {
+    color: #1B984F;
+    text-decoration: none;
+}
+
+#twitter_screenname, #twitter_password {
+ width: 225px;
+}
+td.w2p_fl, td.w2p_fw {
+    padding-bottom: 10px;
+}
+
+
+
+
+.footer > .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 20px;
+}
+.background {
+    //background: url(../images/tesselation.png) repeat-x center center;
+    background: url(http://lattice.cf/images/img--scheduledInstances@2x-44648250.png);
+    //background-color: #1B984F;
+    background-color: #000000;
+    background-size: cover;
+}
+
+.background-footer {
+    background: url(../images/background_footer.png) no-repeat;
+  width: 128px;
+    height: 29px;
+  display: block;
+}
+
+.background-header {
+    background: url(../images/lattice.png) no-repeat;
+    width: 156px;
+    height: 156px;
+    background-size: 156px 156px;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+
+}
+
+
+
+.btn-twitter, .btn-twitter:hover, .btn-twitter:active, .btn-twitter:focus{
+    background: url("https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-gray.png") no-repeat;
+    width: 158px;
+    height: 29px;
+}
+
+
+
+.navbar-toggle, .navbar-toggle:hover  {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+.navbar-inverse {
+    //background-image: -webkit-linear-gradient(top,#9296FF 0,#663682 100%);
+}
+
+
+#web2py-logo {
+    line-height: 32px;
+}
+
+.navbar-nav>li>a {
+
+    line-height: 32px;
+}
+
+.size32 {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+.user-homepage-link{
+    color: #028AFF;
+}
+.user-homepage-link:hover{
+ text-decoration: none;
+    color: #C500F9;
+}
+.twitter-timeline-user-image{
+    border-radius: 4px;
+}
+
+.tweet-text{
+       color: black;
+    margin: 0 0 0px;
+}
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar .navbar-brand {
+color: #9d9d9d;
+    
+}
+
+body{
+ color: white;
+    background-color: rgba(22, 34, 41, 0.82);
+    
+}
+
+a {
+ color: #00FF00;   
+}
+a:hover {
+ color:#FF00FF;   
+    text-decoration: none;
+}

@@ -1,0 +1,60 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+    <header class="container-fluid background ">
+      <div class="jumbotron text-center ">
+          <table>
+              <tr>
+                  <td>{{=DIV(_class='')}}</td>
+                   {{if response.title:}}
+                  <td><h1>{{=response.title}}<small class='small-text'> {{=response.subtitle or ''}}</small></h1></td>
+                   {{pass}}
+              </tr>
+          </table>
+      </div>
+    </header>
+{{end}}
+
+<h2>{{=message}}</h2>
+<div class='twitter_login'>
+{{=form}}
+</div>
+<br>
+<h4>Progress & Updates</h4>
+<ul>
+    <li>Sept. 8, 2015:
+        <ul>
+            <li>Released personalized {{=A('Lattice', _href='http://lattice.cf/')}} Twitter bots into production</li>
+        </ul>
+    </li>
+     <li>Sept. 7, 2015:
+        <ul>
+            <li>Created Docker container for personalized bot: {{=A('/bbertka/ltc-twitter-sentiment-demo-img',_href='https://hub.docker.com/r/bbertka/ltc-twitter-sentiment-demo-img/')}} </li>
+        </ul>
+    </li>
+    <li>Sept. 5, 2015:
+        <ul>
+            <li>Deployed {{=A('Lattice', _href='http://lattice.cf/')}} cluster to AWS </li>
+        </ul>
+    </li>
+    <li>Sept. 4, 2015:
+        <ul>
+            <li>Batch ingestion of twitter timelines for 100K users into {{=A('Greenplum DB', _href='http://pivotal.io/big-data/pivotal-greenplum-database')}}</li>
+        </ul>
+    </li>
+    <li>Sept. 3, 2015:
+        <ul>
+         <li>New Dashboard with hashtag and sentiment analysis</li>
+        </ul>
+    </li>
+    <li>Sept. 2, 2015:
+        <ul>
+        <li>Application relocated to internal production Vsphere environment Pezapp.io</li>
+        </ul>
+    </li>
+    <li>Sept. 1, 2015:
+        <ul>
+        <li>Test application deployed onto public {{=A('Pivotal Web Services', _href='https://run.pivotal.io/')}}</li>
+        </ul>
+    </li>
+</ul>
