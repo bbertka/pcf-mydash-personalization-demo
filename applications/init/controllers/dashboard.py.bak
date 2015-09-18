@@ -93,14 +93,13 @@ class bubblestats:
                                 self.trend_raw.append(tag)
                         self.trend_count = Counter( self.trend_raw )
                         session.TRACK = [tag.lower() for tag, num in top20 ]
+                        session.TOP20 = top20
 
 
         def add(self, trends=[]):
                 # this lets the bubble chart grow bigger
                 self.trend_count = Counter(trends) + self.trend_count
 
-def track():
-    return session.TRACK
 
 class piestats:
         def __init__(self):

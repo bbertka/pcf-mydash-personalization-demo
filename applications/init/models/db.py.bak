@@ -98,4 +98,4 @@ auth.settings.actions_disabled.append('login')
 
 db = DAL('sqlite://webform.sqlite')
 db.define_table('twitter',
-    Field('searchname', requires=IS_NOT_EMPTY()))
+    Field('username', requires=IS_NOT_EMPTY()))

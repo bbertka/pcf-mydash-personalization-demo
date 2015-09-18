@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # try something like
 def index():
-    redirect("https://mydash.cfapps.pez.pivotal.io/")
 
     response.title = 'Help'
     return dict(message="Help is on its way!")

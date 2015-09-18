@@ -1,2 +1,3 @@
 twython
 textblob
+BeautifulSoup4

@@ -172,3 +172,17 @@ a:hover {
  color:#FF00FF;   
     text-decoration: none;
 }
+
+div.flash.alert {
+    background-color: #4CEFA6;
+    border-color: #FFFFFF;
+}
+
+
+.newstable{
+ color: blueviolet;   
+}
+
+.btn-default {
+    text-shadow: none;
+}

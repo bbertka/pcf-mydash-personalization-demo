@@ -1,3 +1,47 @@
 {{extend 'layout.html'}}
-<h1>This is the recommended/index.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+
+  <link rel="stylesheet" type="text/css" href="{{=URL('static','keen/assets/css/keen-dashboards.css')}}" />
+
+
+
+    <div class="row" style="padding-top: 25px;">
+
+        
+          <div class="container-fluid">
+              
+              
+              
+              
+              
+    <div class="row">
+
+      <div class="col-sm-12">
+ {{=form}}
+
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <i class="fa fa-lg fa-twitter"> My Recommmended Articles</i>
+          </div>
+          <div class="chart-stage">
+{{=TABLE(_class="table table-striped table-hover newstable", *[TR(*rows) for rows in message])}}
+          </div>
+          <div class="chart-notes">
+            Articles from a search of TOP 20 Hashtag Interests shown
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+
+   </div>
+
+  </div>
+  <script type="text/javascript" src="{{=URL('static','keen/assets/lib/holderjs/holder.js')}}"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+  <script type="text/javascript" src="{{=URL('static','keen/assets/lib/keen-js/dist/keen.min.js')}}"></script>
+  <script type="text/javascript" src="{{=URL('static','keen/assets/js/meta.js')}}"></script>

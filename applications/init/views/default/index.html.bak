@@ -22,14 +22,19 @@
 <br>
 <h4>Progress & Updates</h4>
 <ul>
+     <li>Sept. 11, 2015:
+        <ul>
+            <li>Fixed a bug that caused a streamer showing a searched timeline showing instead of the user</li>
+        </ul>
+    </li>
     <li>Sept. 8, 2015:
         <ul>
-            <li>Released personalized {{=A('Lattice', _href='http://lattice.cf/')}} Twitter bots into production</li>
+            <li>Released personalized Streamer service (TwitterBot-as-a-Service) into production</li>
         </ul>
     </li>
      <li>Sept. 7, 2015:
         <ul>
-            <li>Created Docker container for personalized bot: {{=A('/bbertka/ltc-twitter-sentiment-demo-img',_href='https://hub.docker.com/r/bbertka/ltc-twitter-sentiment-demo-img/')}} </li>
+            <li>Created Docker container for personalized streamers: {{=A('/bbertka/ltc-twitter-sentiment-demo-img',_href='https://hub.docker.com/r/bbertka/ltc-twitter-sentiment-demo-img/')}} </li>
         </ul>
     </li>
     <li>Sept. 5, 2015:

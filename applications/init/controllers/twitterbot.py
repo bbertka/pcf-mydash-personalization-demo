@@ -10,8 +10,8 @@ def index():
         redirect('/')
     if not session.TRACK:
         redirect('/')
-    sentiment = "http://ltc-%s.%s/sentiment.html" % (session.SCREENNAME, os.getenv('DIEGO_RECEPTOR') )
-    bubbles = "http://ltc-%s.%s/bubbles.html" % (session.SCREENNAME, os.getenv('DIEGO_RECEPTOR') )
+    sentiment = "http://ltc-%s.%s/sentiment.html" % (session.SCREENNAME, myglobals.DIEGO_RECEPTOR )
+    bubbles = "http://ltc-%s.%s/bubbles.html" % (session.SCREENNAME, myglobals.DIEGO_RECEPTOR )
     response.title = "Stream"
 
     if not session.BOT:
@@ -22,7 +22,7 @@ def index():
 
 def showBot():
     headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}
-    r = requests.get("http://receptor.%s/v1/desired_lrps/ltc-%s"% ( os.getenv('DIEGO_RECEPTOR'), session.SCREENNAME.lower() ), headers=headers)
+    r = requests.get("http://receptor.%s/v1/desired_lrps/ltc-%s"% ( myglobals.DIEGO_RECEPTOR, session.SCREENNAME.lower() ), headers=headers)
     return dict(message=r.content)
 
 def createBot():
@@ -60,8 +60,8 @@ def createBot():
             "cf-router": [
                 {
                     "hostnames": [
-                        "ltc-%s.%s" % (session.SCREENNAME.lower(), os.getenv('DIEGO_RECEPTOR') ), 
-                        "ltc-%s-8080.%s" % (session.SCREENNAME.lower(), os.getenv('DIEGO_RECEPTOR') )
+                        "ltc-%s.%s" % (session.SCREENNAME.lower(), myglobals.DIEGO_RECEPTOR ), 
+                        "ltc-%s-8080.%s" % (session.SCREENNAME.lower(), myglobals.DIEGO_RECEPTOR )
                     ], 
                     "port": 8080
                 }
@@ -136,5 +136,5 @@ def createBot():
         "rootfs": "docker:///bbertka/ltc-twitter-sentiment-demo-img#latest"
     }
     headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}
-    r = requests.post("http://receptor.%s/v1/desired_lrps" % os.getenv('DIEGO_RECEPTOR'), data=json.dumps(query), headers=headers)
+    r = requests.post("http://receptor.%s/v1/desired_lrps" % myglobals.DIEGO_RECEPTOR, data=json.dumps(query), headers=headers)
     return r.content

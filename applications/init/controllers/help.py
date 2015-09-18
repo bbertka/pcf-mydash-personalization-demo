@@ -3,4 +3,4 @@
 def index():
 
     response.title = 'Help'
-    return dict(message="Help is on its way!")
+    return dict(message="How To...")

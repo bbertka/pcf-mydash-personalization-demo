@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # try something like
+
 from twython import Twython
 import os, json, sys
 from collections import Counter
@@ -93,6 +94,7 @@ class bubblestats:
                                 self.trend_raw.append(tag)
                         self.trend_count = Counter( self.trend_raw )
                         session.TRACK = [tag.lower() for tag, num in top20 ]
+                        session.TOP20 = top20
 
 
         def add(self, trends=[]):

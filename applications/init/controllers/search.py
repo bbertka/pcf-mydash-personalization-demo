@@ -11,7 +11,7 @@ def index():
         redirect('/')
     response.title = 'Search'
     message = ""
-    form, message, timeline = display_form()
+    form, showuser, timeline = display_form()
 
     return dict(form=form, timeline=timeline)
 
@@ -66,9 +66,7 @@ class bubblestats:
                             for i in range(0, num):
                                 self.trend_raw.append(tag)
                         self.trend_count = Counter( self.trend_raw )
-                        session.TRACK = [tag.lower() for tag, num in top20 ]
-                   
-
+                        #session.TRACK = [tag.lower() for tag, num in top20 ]
 
         def add(self, trends=[]):
                 # this lets the bubble chart grow bigger
@@ -95,20 +93,26 @@ class piestats:
 def display_form():
     form = SQLFORM(db.twitter, formstyle='table3cols', buttons = [TAG.button('Submit',_type="submit", _class="btn btn-success btn-default")])
     timeline = None
-    message = None
+    showuser = None
     if form.process().accepted:
         session.SEARCHNAME = form.vars.username
-        message, timeline = search()
+        showuser, timeline = search()
+        if not showuser:
+            response.flash = 'Enter a valid Twitter @username'
+            timeline = None
     elif form.errors:
-        response.flash = 'Form has Errors'
+        pass
+        #response.flash = 'Form has Errors'
     else:
         pass
-    return form, message, timeline
+
+    return form, showuser, timeline
 
 def search():
     if not session.SCREENNAME:
         redirect('/')
     tweets = []
+    showuser = None
     try:
         twitter = Twython(myglobals.APP_KEY, myglobals.APP_SECRET, session.USER_OAUTH_TOKEN, session.USER_OAUTH_TOKEN_SECRET)
         timeline = twitter.get_user_timeline(screen_name=session.SEARCHNAME, count=20)

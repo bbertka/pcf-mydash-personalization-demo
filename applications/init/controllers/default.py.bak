@@ -89,5 +89,5 @@ def user():
 
 def deleteBot():
     headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}
-    r = requests.delete("http://receptor.%s/v1/desired_lrps/ltc-%s" % (os.getenv('DIEGO_RECEPTOR'), session.SCREENNAME.lower() ), headers=headers)
+    r = requests.delete("http://receptor.%s/v1/desired_lrps/ltc-%s" % (myglobals.DIEGO_RECEPTOR, session.SCREENNAME.lower() ), headers=headers)
     return dict(message=r.content)

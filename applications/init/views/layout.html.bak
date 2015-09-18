@@ -65,7 +65,7 @@ body::after {
   z-index: -1;
     background-size:contain;
 background-position:center;
-        color: #686868;
+        color: #898989;
    // background-color: #2D2D2D;
 }
 

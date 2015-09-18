@@ -99,3 +99,5 @@ auth.settings.actions_disabled.append('login')
 db = DAL('sqlite://webform.sqlite')
 db.define_table('twitter',
     Field('username', requires=IS_NOT_EMPTY()))
+
+db.define_table('news')

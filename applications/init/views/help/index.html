@@ -1,3 +1,33 @@
 {{extend 'layout.html'}}
-<h1>This is the help/index.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<h1>{{=message}}</h1>
+<br>
+<h3>
+    Log In
+</h3>
+<p>
+    Hit the button to be logged in with Twitter
+</p>
+<h3>
+    See my Timeline
+</h3>
+<p>
+    Once you are authenticated, you are transported to your personal dashboard. Clicking 'Home' takes you to your dashboard too.
+</p>
+<h3>
+    See other User timeines
+</h3>
+<p>
+    Once you are authenticated, click 'Search' and find someone you are interested in
+</p>
+<h3>
+    Get my own Twitter Bot (Streamer)
+</h3>
+<p>
+    Once you are authenticated, click 'Stream' and your own bot is spun up in the Lattice cluster
+</p>
+<h3>
+    Destroy my Twitter Bot
+</h3>
+<p>
+    Once you are authenticated, logging out tears down the Streamer instance
+</p>

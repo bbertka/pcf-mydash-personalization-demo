@@ -43,15 +43,15 @@ else:
         [CAT(I(_class='glyphicon glyphicon-home'),T(' Home')), False, URL('default', 'index')],
         [CAT(I(_class='fa  fa-search'),T(' Search')), False, URL('init', 'search', 'index')],
         [CAT(I(_class='fa  fa-twitter'),T(' Stream')), False, URL('init', 'twitterbot', 'index')],
-        [CAT(I(_class='fa fa-lightbulb-o'),T(' Discover')), False, URL('init', 'recommended', 'index')],
+       [CAT(I(_class='fa fa-lightbulb-o'),T(' Discover')), False, URL('init', 'recommended', 'index')],
 
     ]
     response.menu1 = [
     (CAT(IMG(_src=session.IMAGE, _class='size32'), " ", session.SCREENNAME), False, '#', [
                (T('About'), False, URL('init', 'about', 'index')),
                LI(_class="divider"),
-              (T('Profile'), False, URL('init', 'profile', 'index')),
-              LI(_class="divider"),
+            #  (T('Profile'), False, URL('init', 'profile', 'index')),
+            # LI(_class="divider"),
                 [CAT(I(_class='glyphicon glyphicon-log-out'), T(' Logout')), False, URL('init', 'default', 'logout')],
 
               ]) ]
