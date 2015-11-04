@@ -95,5 +95,12 @@ auth.settings.actions_disabled.append('login')
 # auth.enable_record_versioning(db)
 
 db = DAL('sqlite://webform.sqlite')
-db.define_table('twitter', Field('username', requires=IS_NOT_EMPTY()))
-db.define_table('news')
+try:
+    db.define_table('twitter', Field('username', requires=IS_NOT_EMPTY()))
+except:
+    pass
+
+try:
+    db.define_table('news')
+except:
+    pass
