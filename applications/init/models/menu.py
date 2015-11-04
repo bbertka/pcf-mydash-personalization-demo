@@ -42,7 +42,7 @@ else:
     response.menu = [
         [CAT(I(_class='glyphicon glyphicon-home'),T(' Home')), False, URL('default', 'index')],
         [CAT(I(_class='fa  fa-search'),T(' Search')), False, URL('init', 'search', 'index')],
-        [CAT(I(_class='fa  fa-twitter'),T(' Stream')), False, URL('init', 'twitterbot', 'index')],
+        #[CAT(I(_class='fa  fa-twitter'),T(' Stream')), False, URL('init', 'twitterbot', 'index')],
        [CAT(I(_class='fa fa-lightbulb-o'),T(' Discover')), False, URL('init', 'recommended', 'index')],
 
     ]
