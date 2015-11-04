@@ -80,7 +80,7 @@ def follow_user():
 
 
 def logout():
-    deleteBot()
+    #deleteBot()
     session.clear()
     redirect('/')
 
