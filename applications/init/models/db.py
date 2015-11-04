@@ -94,10 +94,6 @@ auth.settings.actions_disabled.append('login')
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
 
-
-
 db = DAL('sqlite://webform.sqlite')
-db.define_table('twitter',
-    Field('username', requires=IS_NOT_EMPTY()))
-
+db.define_table('twitter', Field('username', requires=IS_NOT_EMPTY()))
 db.define_table('news')
