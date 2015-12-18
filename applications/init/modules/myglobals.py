@@ -17,4 +17,4 @@ except:
     ACCESS_TOKEN = '2927712042-kpRDLAz0BEGt9tM6aRZqxdJW5REc1ufLbMTf5Yp'
     ACCESS_TOKEN_SECRET = 'wSZqg9lFSadjfMg6tvCbFD25F9HtqGqf8NpL9RfIuDALf'
     APP_URI = 'devbox'
-    DIEGO_RECEPTOR = '52.5.148.62.xip.io'
+    DIEGO_RECEPTOR = '52.11.65.152.xip.io'

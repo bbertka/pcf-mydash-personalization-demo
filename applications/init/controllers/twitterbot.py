@@ -133,7 +133,7 @@ def createBot():
             }
         }, 
         "process_guid": "ltc-%s" % session.SCREENNAME.lower(), 
-        "rootfs": "docker:///bbertka/ltc-twitter-sentiment-demo-img#latest"
+        "rootfs": "docker:///bbertka/ltc-twitter-sentiment-demo#latest"
     }
     headers = {'Authorization':'Basic YmJlcnRrYTprYXJtYTE5NzY='}
     r = requests.post("http://receptor.%s/v1/desired_lrps" % myglobals.DIEGO_RECEPTOR, data=json.dumps(query), headers=headers)
