@@ -1,6 +1,5 @@
 applications:
 - name: mydash
-  buildpack: https://github.com/cloudfoundry/python-buildpack
   memory: 512M
   stack: cflinuxfs2
   instances: 1
@@ -9,3 +8,4 @@ applications:
     APP_SECRET:
     ACCESS_TOKEN:
     ACCESS_TOKEN_SECRET:
+    DIEGO_RECEPTOR: <your diego ip>.xip.io
